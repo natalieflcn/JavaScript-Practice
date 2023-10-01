@@ -152,5 +152,26 @@ const chaining = todos.filter(function(todo) {
     return todo.isCompleted === true;
 }).map(function(todo){
     return todo.text;
-});
+}); //you can chain multiple array objects together
+//this instance filters all true booleans in todos, then the text is returned for all those true objects
 console.log(chaining);
+
+//If Statements
+const num = 10;
+if(num == '10') { //the double equal sign "==" will match a string to a num if the value is the same
+    console.log('num == 10');
+}
+
+//triple equal sign validates data type as well, extra security
+if(num === '10') { //the triple equal sign "===" will not match a string to a num bc unequal data type
+    console.log('num === 10');
+} else if(num > 10){
+    console.log('num is greater than 10');
+} else {
+    console.log('num is not 10');
+}
+
+//ternary operator -- shorthand if statement
+const p = 10;
+const color = p > 10 ? 'red' : 'blue';
+console.log(color);
