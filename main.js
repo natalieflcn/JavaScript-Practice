@@ -110,3 +110,47 @@ console.log(todos[1].text);
 
 const todoJSON = JSON.stringify(todos);
 console.log(todoJSON);
+
+//For Loops
+for(let i = 0; i < 10; i++) {
+    console.log(i);
+    console.log(`For Loop Number: ${i}`);
+}
+
+//For Of Loop
+for(let todo of todos){
+    console.log(todo.text); //This is a simpler way to loop through arrays
+}
+
+//While Loops
+let i = 0;
+while(i < 10){
+    console.log(`While Loop Number: ${i}`);
+    i++;
+}
+
+//Array Methods -- forEach, map, filter
+//forEach
+const forEachTodo = todos.forEach(function(todo){
+    console.log(todo.text);
+}); //for each todos array object, it will perform the following command (console.log) for each item
+
+//map
+const toDoText = todos.map(function(todo){
+    return todo.text;
+}); //returns an array of todos text items (bc the todo.text was returned for each array object)
+console.log(toDoText); 
+
+//filter
+const toDoCompleted = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+}); //returns all array objects that meet the "return condition"
+console.log(toDoCompleted);
+
+//chaining array methods
+const chaining = todos.filter(function(todo) {
+    return todo.isCompleted === true;
+}).map(function(todo){
+    return todo.text;
+});
+console.log(chaining);
