@@ -63,4 +63,50 @@ console.log(Array.isArray(fruits)); //checking if fruits is an array
 const moreFruits = ['mangoes', 444, 'kiwi', true]; //you can have multiple data types in an array
 console.log(moreFruits);
 
-console.log(moreFruits.indexOf('mangoes'));
+console.log(moreFruits.indexOf('mangoes')); //finds index of mangos
+
+//Object Literals
+const person = {
+    firstName: 'Antonio',
+    lastName: 'Falcon',
+    age: 30,
+    hobbies: ['driving', 'drinking', 'not dancing'],
+    address: {
+        street: '242 Calle Loiza',
+        city: 'Santurce',
+        state: 'Puerto Rico'
+    }
+}
+
+console.log(person);
+console.log(person.firstName); //returns first name of person object
+console.log(person.firstName, person.lastName); //returns multiple values of persron object
+console.log(person.hobbies[2]);
+
+person.email = 'antonio52@gmail.com'; //you can also add new properties like so
+console.log(person);
+
+//Arrays of Objects
+const todos = [
+    {
+        id: 0,
+        text: 'take out trash',
+        isCompleted: true
+    },
+    {
+        id: 1,
+        text: 'meeting with boss',
+        isCompleted: true
+    },
+    {
+        id: 1,
+        text: 'dentist appointment',
+        isCompleted: false
+    }
+]
+
+console.log(todos);
+console.log(todos[1].text);
+
+const todoJSON = JSON.stringify(todos);
+console.log(todoJSON);
