@@ -198,4 +198,19 @@ addNums(4,5);
 function addNums2(num1 = 1, num2 = 2) { //you can set default values for parameters in functions
     console.log(num1+num2);
 }
-addNums2();
+addNums2(); //default values will be used
+addNums2(3,6); //new values will overwrite default values
+
+//arrow functions
+const addNums3 = (num1 = 2, num2 = 4) => {
+    return num1 + num2;
+} //this arrow function simplifies the syntax of the function
+console.log(addNums3());
+
+const addNums4 = (num1, num2) => num1 + num2;
+console.log(addNums4(2,4)); // you can return something on a single line, no return statement and no curly brackets
+
+const addNums5 = num1 => num1 + 2;
+console.log(addNums5(1)); //if you have one parameter, you don't need parentheses
+
+todos.forEach((todo) => console.log(todo));
