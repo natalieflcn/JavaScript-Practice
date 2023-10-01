@@ -173,5 +173,29 @@ if(num === '10') { //the triple equal sign "===" will not match a string to a nu
 
 //ternary operator -- shorthand if statement
 const p = 10;
-const color = p > 10 ? 'red' : 'blue';
+const color = p < 10 ? 'red' : 'blue';
 console.log(color);
+
+switch(color){
+    case 'red':
+        console.log('color is red');
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default:
+        console.log('color is not red or blue');
+        break;
+}
+
+//Functions
+function addNums(num1, num2) {
+    console.log(num1+num2);
+}
+
+addNums(4,5);
+
+function addNums2(num1 = 1, num2 = 2) { //you can set default values for parameters in functions
+    console.log(num1+num2);
+}
+addNums2();
