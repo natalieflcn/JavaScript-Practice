@@ -1,38 +1,37 @@
-// Single element selectors
-const form = document.getElementById('my-form'); //this selects a single element with the ID
-console.log(document.querySelector('h1')); //this selects the first element in the query (classes, tags, anything)
+const myForm = document.querySelector('#my-form');
 
+const nameInput = document.querySelector('#name');
 
-// Multi-element selectors
-console.log(document.querySelectorAll('.item')); //this selects all elements that satisfy the query
-                                                 //returns a node list of said elements
+const emailInput = document.querySelector('#email');
 
-const items = document.querySelectorAll('.item');
-items.forEach((item) => console.log(item));
+const msg = document.querySelector('.msg');
 
-//Manipulating the DOM (Document Object Model) -- User Interface
-console.log('Now, we\'re moving on and manipulating the DOM');
-const ul = document.querySelector('.items');
+const userList = document.querySelector('#users');
 
+myForm.addEventListener('submit', onSubmit);
 
-//ul.remove(); //removes everything stored in the 'ul' constant
-//ul.lastElementChild.remove(); //removes the last element of the 'ul' constant
-ul.firstElementChild.textContent = 'Hello'; //changes the first element's content to 'hello'
-ul.children[1].innerText = 'Brad'; //changes the children[1].text to value
-ul.children[0].innerHTML = '<h1>Hello</h1>'; //changes the HTML of children[0]
+function onSubmit(event) {
+    event.preventDefault();
 
-const btn = document.querySelector('.btn');
-btn.style.background = 'red';
+    //This if statement ensures both fields are entered
+    if(nameInput.value === '' || emailInput.value === ''){
+       // alert('Please enter fields'); //however, alerts are not recommended bc it stops your code
+       msg.classList.add('error');
+       msg.innerHTML = 'Please enter all fields';
 
-//Events
-btn.addEventListener('click', (event) => {
-    event.preventDefault(); //prevents the form from submitting so you can see what's happening in the console
-   
-    console.log(event.target); //returns info about the element the event is attached to
-    console.log(event.target.className); //returns the class name of target element
+       setTimeout(() => msg.remove(), 3000); //after 3 seconds, this error message goes away
+    } else {
+        console.log('Success!');
 
-    document.querySelector('#my-form').style.background = '#ccc'; //changes the form background color on click
-    document.querySelector('body').classList.add('bg-dark'); //adds the 'bg-dark' css class to the body on click
+        const li = document.createElement('li'); //creates a (list) element out of nowhere
+        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
 
-    document.querySelector('.items').lastElementChild.innerHTML = '<h1>Hello</h1>';
-});
+        userList.appendChild(li); //adds new list element to userList
+
+        //clear fields
+        nameInput.value = '';
+        emailInput.value = '';
+    }
+
+    console.log(nameInput.value); //the value attribute will get you the actual value
+}
